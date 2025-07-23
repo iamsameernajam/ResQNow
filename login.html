@@ -28,12 +28,17 @@
       align-items: center;
       flex-wrap: wrap;
     }
-    footer p{
-      text-align:center;
-    header h1, footer p {
+    header h1 {
       color: #e60050;
       font-weight: bold;
       font-size: 20px;
+    }
+    footer p {
+      color: #e60073; /* Changed footer text color */
+      font-weight: bold;
+      font-size: 16px; /* Slightly adjusted font size for better appearance */
+      width: 100%; /* Ensure the paragraph takes full width for centering */
+      text-align: center; /* Center the text */
     }
     nav.nav-right {
       display: flex;
@@ -126,7 +131,8 @@
     }
     footer {
       margin-top: auto;
-      text-align: center;
+      justify-content: center; /* Center footer content horizontally */
+      text-align: center; /* Fallback for text alignment */
     }
 
     @media (max-width: 768px) {
@@ -151,8 +157,6 @@
   white-space: nowrap;
   border-bottom: none; /* Ensure no underline */
 }
-
-
   </style>
 </head>
 <body>
@@ -162,12 +166,11 @@
   </div>
     <nav class="nav-right">
       <a href="index.html">Home</a>
-     
+      
     </nav>
   </header>
 
   <div class="container">
-    <!-- Login Form -->
     <div class="form-container">
       <form id="login-form">
         <h1>Log In</h1>
@@ -179,7 +182,6 @@
       </form>
     </div>
 
-    <!-- Overlay -->
     <div class="overlay-container">
       <h1>New Here?</h1>
       <p>Create an account to book ambulance instantly.</p>
