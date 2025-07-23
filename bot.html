@@ -351,6 +351,10 @@
                 if (msg.includes('contact') || msg.includes('number') || msg.includes('call')|| msg.includes('mail')) {
                     return "You can reach our support team 24/7 through the following channels:<br><br>📞 <b>Phone:</b> 1800-234-001<br>📧 <b>Email:</b> helpresqnow@gmail.com";
                 }
+
+                if (msg.includes('developer') || msg.includes('owner') || msg.includes('creator') || msg.includes('made you')) {
+                    return 'This chatbot was developed by <strong>Sameer Najam</strong>. You can connect with him on <a href="https://www.linkedin.com/in/mohd-sameer-najam-291785267/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.';
+                }
                 
                 // Fallback message
                 return "I'm sorry, I don't have the information for that. I can assist with topics like <b>booking</b>, our <b>services</b>, <b>pricing</b>, or <b>contact details</b>.";
