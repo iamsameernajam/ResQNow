@@ -355,6 +355,89 @@
                 if (msg.includes('developer') || msg.includes('owner') || msg.includes('creator') || msg.includes('made you')) {
                     return 'This Website is developed by <strong>Sameer Najam</strong>. You can connect with him on <a href="https://www.linkedin.com/in/mohd-sameer-najam-291785267/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.';
                 }
+
+                // --- Start: New Q&A block ---
+
+// Category: About Services & Equipment
+if (msg.includes('difference') && (msg.includes('bls') || msg.includes('als'))) {
+    return "The main difference is the level of care. <b>BLS (Basic Life Support)</b> is for stable patients needing transport and basic monitoring. <b>ALS (Advanced Life Support)</b> is a mobile ICU with equipment like ventilators and cardiac monitors for critical patients.";
+}
+
+if (msg.includes('equipment') && msg.includes('als')) {
+    return "Our ALS ambulances are equipped with advanced medical gear, including cardiac monitors, defibrillators, ventilators, infusion pumps, and a wide range of emergency medications.";
+}
+
+if (msg.includes('staff') || msg.includes('trained') || msg.includes('certified')) {
+    return "Absolutely. All our medical staff, including paramedics and emergency medical technicians, are highly trained, certified, and have extensive experience in emergency care.";
+}
+
+if (msg.includes('covid') || msg.includes('corona')) {
+    return "Yes, we have specially equipped ambulances with isolation pods and staff trained in infection control protocols to handle COVID-19 and other infectious disease cases safely.";
+}
+
+if (msg.includes('non-emergency')) {
+    return "Yes, our Patient Transport Vehicle service is designed for non-emergency situations, such as scheduled hospital visits, discharges, or inter-facility transfers.";
+}
+
+
+// Category: Operational & Availability
+if (msg.includes('fast') || msg.includes('time') || msg.includes('eta') || msg.includes('reach me')) {
+    return "Our dispatch system is optimized for speed. In metro areas, our average arrival time is under 15 minutes. You can also track the ambulance in real-time on our app after booking.";
+}
+
+if (msg.includes('24/7') || msg.includes('any time') || msg.includes('always open')) {
+    return "Yes, our services are available 24 hours a day, 7 days a week, including holidays. We are always ready to help.";
+}
+
+if (msg.includes('cities') || msg.includes('area') || msg.includes('location') || msg.includes('operate')) {
+    return "We are currently fully operational in Noida and rapidly expanding to other major cities. While we may not be in Pilibhit just yet, our network is growing every day!";
+}
+
+if (msg.includes('track') || msg.includes('gps')) {
+    return "Yes, for your peace of mind, you can track the dispatched ambulance's location in real-time through a GPS link provided in our app.";
+}
+
+if (msg.includes('family') || msg.includes('accompany') || msg.includes('travel with')) {
+    return "Yes, typically one family member or attendant is allowed to accompany the patient. However, this may depend on the patient's medical condition and the space within the ambulance.";
+}
+
+if (msg.includes('hospital') && msg.includes('choose')) {
+    return "Absolutely. You can choose the hospital you want the patient to be taken to. Please provide the hospital details during the booking process.";
+}
+
+
+// Category: Booking & Account
+if (msg.includes('information') || msg.includes('details')) {
+    return "When booking, please have the following information ready: the patient's name and age, a brief description of the medical condition, the exact pickup address, and the destination hospital or address.";
+}
+
+if (msg.includes('unique id')) {
+    return "You can find your <b>Unique ID</b> prominently displayed on the main dashboard as soon as you log in to our app or website.";
+}
+
+if (msg.includes('someone else') || msg.includes('for a relative') || msg.includes('for a friend')) {
+    return "Yes, you can absolutely book an ambulance for someone else. Just ensure you provide their correct details and location during the booking process.";
+}
+
+if (msg.includes('cancel')) {
+    return "Yes, you can cancel a booking directly from the app. We request that you cancel as soon as possible, preferably before an ambulance has been dispatched, to free up the vehicle for another emergency.";
+}
+
+if (msg.includes('forgot') || msg.includes('reset')) {
+    return "If you've forgotten your password, please click on the 'Forgot Password' link on the login page. You'll be guided through the steps to reset it securely.";
+}
+
+
+// Category: General & Miscellaneous
+if (msg.includes('different') || msg.includes('special') || msg.includes('why you')) {
+    return "We focus on three key areas: <b>Speed</b> (average ETA under 15 mins), <b>Care</b> (highly trained staff and advanced equipment), and <b>Transparency</b> (real-time tracking and clear communication). Plus, our service is currently free!";
+}
+
+if (msg.includes('help') || msg.includes('summary') || msg.includes('capabilities')) {
+    return "I can help you with: <br>• How to <b>book</b> an ambulance<br>• Details about our <b>services</b> (BLS, ALS)<br>• Information on our promotional <b>free pricing</b><br>• Our <b>contact</b> details<br>• Answering frequently asked questions.";
+}
+
+// --- End: New Q&A block ---
                 
                 // Fallback message
                 return "I'm sorry, I don't have the information for that. I can assist with topics like <b>booking</b>, our <b>services</b>, <b>pricing</b>, or <b>contact details</b>.";
