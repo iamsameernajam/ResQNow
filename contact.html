@@ -27,17 +27,16 @@
             background-color: var(--light-gray);
             color: var(--dark-gray);
             display: flex;
-            flex-direction: column; /* To stack header, content, and footer */
+            flex-direction: column;
             min-height: 100vh;
         }
 
-        /* --- ADDED: Header and Footer Styling --- */
         header, footer {
             width: 100%;
             background-color: #ffffff;
             padding: 1rem 5%;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            flex-shrink: 0; /* Prevents shrinking */
+            flex-shrink: 0;
         }
 
         header {
@@ -72,12 +71,11 @@
             text-align: center;
             color: #6c757d;
             font-size: 0.9rem;
-            margin-top: auto; /* Pushes footer to the bottom */
+            margin-top: auto;
         }
 
-        /* --- Main content container --- */
         .main-content {
-            flex-grow: 1; /* Allows this section to fill space */
+            flex-grow: 1;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -87,31 +85,31 @@
 
         .contact-container {
             background-color: #fff;
-            padding: 2rem 2.5rem;
+            padding: 2rem; /* MODIFIED: Was 2rem 2.5rem */
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 600px;
+            max-width: 550px; /* MODIFIED: Was 600px */
         }
 
         .contact-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem; /* MODIFIED: Was 2rem */
         }
 
         .contact-header h1 {
             color: var(--primary-color);
-            font-size: 2.5rem;
+            font-size: 2.2rem; /* MODIFIED: Was 2.5rem */
             margin-bottom: 0.5rem;
         }
 
         .contact-header p {
-            font-size: 1.1rem;
+            font-size: 1rem; /* MODIFIED: Was 1.1rem */
             color: #6c757d;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem; /* MODIFIED: Was 1.5rem */
         }
 
         .form-group label {
@@ -123,7 +121,7 @@
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem 1rem;
+            padding: 0.75rem 1rem; /* MODIFIED: Was 0.8rem 1rem */
             border: 1px solid #ced4da;
             border-radius: 8px;
             font-size: 1rem;
@@ -139,13 +137,13 @@
         }
 
         .form-group textarea {
-            min-height: 150px;
+            min-height: 120px; /* MODIFIED: Was 150px */
             resize: vertical;
         }
 
         #submit-btn {
             width: 100%;
-            padding: 1rem;
+            padding: 0.8rem; /* MODIFIED: Was 1rem */
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: #fff;
             border: none;
@@ -154,6 +152,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 0.5rem; /* MODIFIED: Added some top margin */
         }
 
         #submit-btn:hover {
@@ -161,7 +160,6 @@
             transform: translateY(-2px);
         }
 
-        /* --- Responsive Design for all screen sizes --- */
         @media (max-width: 768px) {
             header .logo a {
                 font-size: 1.2rem;
