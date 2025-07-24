@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Ambulance Booking</title>
+    <title>Ambulance Booking - ResQNow</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <style>
         html { scroll-behavior: smooth; }
@@ -53,38 +53,9 @@
         .nav-left h1 { margin: 0; font-size: 20px; color: #e60050; white-space: nowrap; border-bottom: none; }
         .chatbot-icon { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #e60050; color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.2s ease-in-out; }
         .chatbot-icon:hover { transform: scale(1.1); }
-        
-        /* --- ADDED: SCROLL-TO-TOP BUTTON CSS --- */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            display: none; /* Hidden by default */
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out, transform 0.2s;
-        }
-        .scroll-to-top:hover {
-            background-color: #555;
-            transform: scale(1.1);
-        }
-        .scroll-to-top.show {
-            display: flex;
-            opacity: 1;
-        }
-        /* --- END OF SCROLL-TO-TOP CSS --- */
-
+        .scroll-to-top { position: fixed; bottom: 30px; left: 30px; width: 50px; height: 50px; background-color: #333; color: white; border: none; border-radius: 50%; display: none; justify-content: center; align-items: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; opacity: 0; transition: opacity 0.3s ease-in-out, transform 0.2s; }
+        .scroll-to-top:hover { background-color: #555; transform: scale(1.1); }
+        .scroll-to-top.show { display: flex; opacity: 1; }
         @media (max-width: 768px) {
             .nav-right { display: none; flex-direction: column; align-items: flex-end; position: absolute; top: 60px; right: 0; left: auto; max-width: 300px; width: auto; background: white; padding: 10px 5%; border-top: 1px solid #eee; box-shadow: 0 2px 6px rgba(0,0,0,0.1); z-index: 999; }
             .nav-right.show { display: flex; }
@@ -102,7 +73,6 @@
             .nav-left h1 { font-size: 16px; }
             .nav-right a, .nav-right span, .dropdown-btn { font-size: 12px; padding: 4px 8px; }
             .dropdown-content a { font-size: 12px; padding: 8px 12px; }
-            /* Reposition icons on smaller screens */
             .chatbot-icon { width: 50px; height: 50px; font-size: 24px; bottom: 20px; right: 20px;}
             .scroll-to-top { width: 45px; height: 45px; font-size: 20px; bottom: 20px; left: 20px;}
         }
@@ -129,7 +99,7 @@
         <a href="#services">Services</a>
         <a href="#why">Why Us?</a>
         <a href="#faq">FAQs</a>
-        <a href="#contact">Contact</a>
+        <a href="contact.html">Contact</a>
         <a href="sample.html" id="adminPanelLink" style="display:none;">Admin Panel</a>
         <span class="phone-number">📞 1800-234-001</span>
         <span id="auth-links" style="position: relative;"></span>
@@ -164,35 +134,17 @@
       </div>
       <div class="content-box">
         <h2>Who We Are</h2>
-        <p>
-          At ResQNow Ambulance, we are a <em>patient-first</em> organization committed to delivering swift,
-          reliable, and advanced medical solutions when every second counts.
-        </p>
-        <p>
-          Backed by a team of medical professionals with over two decades of expertise, we bring unmatched
-          precision and compassion to each mission.
-        </p>
+        <p>At ResQNow Ambulance, we are a <em>patient-first</em> organization committed to delivering swift, reliable, and advanced medical solutions when every second counts.</p>
+        <p>Backed by a team of medical professionals with over two decades of expertise, we bring unmatched precision and compassion to each mission.</p>
        <div class="stats">
-        <div class="stat-item">
-          <strong><span class="stat-number" data-target="1500">0</span>+</strong>
-          Patient Transfers since 2016
-        </div>
-        <div class="stat-item">
-          <strong><span class="stat-number" data-target="750">0</span>+</strong>
-          Hospital Admissions Secured
-        </div>
-        <div class="stat-item">
-          <strong><span class="stat-number" data-target="250">0</span>+</strong>
-          ECMO Initiation & Transfers
-        </div>
-        <div class="stat-item">
-          <strong>70%</strong>
-          of all organ airlifts in India
-        </div>
+        <div class="stat-item"><strong><span class="stat-number" data-target="1500">0</span>+</strong> Patient Transfers since 2016</div>
+        <div class="stat-item"><strong><span class="stat-number" data-target="750">0</span>+</strong> Hospital Admissions Secured</div>
+        <div class="stat-item"><strong><span class="stat-number" data-target="250">0</span>+</strong> ECMO Initiation & Transfers</div>
+        <div class="stat-item"><strong>70%</strong> of all organ airlifts in India</div>
        </div>
       </div>
     </section>
-
+    
     <section class="reveal">
       <h2 class="section-title">How to Book</h2>
       <div class="section-content">
@@ -211,31 +163,17 @@
         <p>✔️ 24/7 availability with a fleet of modern ambulances.</p>
         <p>✔️ Trained medical staff on board.</p>
         <p>✔️ Real-time GPS tracking for transparency.</p>
-        <div class="testimonial">
-          "I was amazed at how quickly the ambulance arrived. The care was top-notch!"<br/>— S. Mehra, Mumbai
-        </div>
+        <div class="testimonial">"I was amazed at how quickly the ambulance arrived. The care was top-notch!"<br/>— S. Mehra, Mumbai</div>
       </div>
     </section>
 
     <section id="reviews" class="reveal">
       <h2 class="section-title">What Our Users Say</h2>
       <div class="review-container">
-        <div class="review-card">
-          <p class="review-text">"Excellent response time and very professional staff. Truly a lifesaver!"</p>
-          <p class="review-author">— Anjali R., Delhi</p>
-        </div>
-        <div class="review-card">
-          <p class="review-text">"Booking an ambulance was never this easy. Highly recommended."</p>
-          <p class="review-author">— Ramesh K., Pune</p>
-        </div>
-        <div class="review-card">
-          <p class="review-text">"Fast, courteous, and well-equipped service. ResQNow exceeded expectations."</p>
-          <p class="review-author">— Priya S., Bangalore</p>
-        </div>
-        <div class="review-card">
-          <p class="review-text">"Got air ambulance within hours! Exceptional coordination and care."</p>
-          <p class="review-author">— Imran M., Hyderabad</p>
-        </div>
+        <div class="review-card"><p class="review-text">"Excellent response time and very professional staff. Truly a lifesaver!"</p><p class="review-author">— Anjali R., Delhi</p></div>
+        <div class="review-card"><p class="review-text">"Booking an ambulance was never this easy. Highly recommended."</p><p class="review-author">— Ramesh K., Pune</p></div>
+        <div class="review-card"><p class="review-text">"Fast, courteous, and well-equipped service. ResQNow exceeded expectations."</p><p class="review-author">— Priya S., Bangalore</p></div>
+        <div class="review-card"><p class="review-text">"Got air ambulance within hours! Exceptional coordination and care."</p><p class="review-author">— Imran M., Hyderabad</p></div>
       </div>
     </section>
 
@@ -249,76 +187,46 @@
         </ul>
       </div>
     </section>
-
-    <footer class="reveal" id="contact">
+    
+    <footer class="reveal">
+      <p><strong>Phone:</strong> 1800-234-001 | <strong>Email:</strong> <a href="mailto:helpresqnow@gmail.com" style="color: #e60050;">helpresqnow@gmail.com</a></p>
+      <p><strong>Made with ❤️ by <a href="https://www.linkedin.com/in/mohd-sameer-najam-291785267/" target="_blank" style="text-decoration: none; color: inherit;">Sameer Najam ↗ </a></strong></p>
       <p>© 2025 ResQNow. All rights reserved.</p>
-      <p><strong>Phone:</strong> 1800-234-001</p>
-      <p><strong>Email:</strong> <a href="mailto:helpresqnow@gmail.com" style="color: #e60050;">helpresqnow@gmail.com</a></p>
-<p><strong>Made with ❤️ by <a href="https://www.linkedin.com/in/mohd-sameer-najam-291785267/" target="_blank" style="text-decoration: none; color: inherit;">Sameer Najam ↗ </a></strong></p>
-
-
     </footer>
 
-    <button class="scroll-to-top" id="scrollTopBtn" title="Go to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <div class="chatbot-icon" id="chatbot-icon">
-        <i class="fas fa-robot"></i>
-    </div>
+    <button class="scroll-to-top" id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+    <div class="chatbot-icon" id="chatbot-icon"><i class="fas fa-robot"></i></div>
 
     <script>
         function toggleMenu() {
           const menu = document.getElementById('mainMenu');
           menu.classList.toggle('show');
         }
-
-        document.querySelector('.hamburger').addEventListener('click', function(event) {
-          event.stopPropagation();
-        });
-
-        document.getElementById('mainMenu').addEventListener('click', function(event) {
-          event.stopPropagation();
-        });
-
+        document.querySelector('.hamburger').addEventListener('click', function(event) { event.stopPropagation(); });
+        document.getElementById('mainMenu').addEventListener('click', function(event) { event.stopPropagation(); });
         document.addEventListener('click', function(event) {
           const userMenu = document.getElementById("userDropdownMenu");
           const dropdownBtn = document.querySelector('.dropdown-btn');
           const hamburger = document.querySelector('.hamburger');
           const navMenu = document.getElementById('mainMenu');
-
-          if (userMenu && dropdownBtn && !userMenu.contains(event.target) && !dropdownBtn.contains(event.target)) {
-            userMenu.style.display = "none";
-          }
-          if (navMenu.classList.contains("show") && !navMenu.contains(event.target) && !hamburger.contains(event.target)) {
-            navMenu.classList.remove("show");
-          }
+          if (userMenu && dropdownBtn && !userMenu.contains(event.target) && !dropdownBtn.contains(event.target)) { userMenu.style.display = "none"; }
+          if (navMenu.classList.contains("show") && !navMenu.contains(event.target) && !hamburger.contains(event.target)) { navMenu.classList.remove("show"); }
         });
 
         const phrases = ["Fast, Reliable Emergency Help", "Book Ambulance 24/7"];
         const typewriter = document.getElementById("typewriter");
         let phraseIndex = 0, charIndex = 0, isTyping = true;
-        
         function typeLoop() {
             if (!typewriter) return;
             const currentPhrase = phrases[phraseIndex];
             if (isTyping) {
                 typewriter.textContent = currentPhrase.slice(0, ++charIndex);
-                if (charIndex === currentPhrase.length) {
-                    isTyping = false;
-                    setTimeout(typeLoop, 2000);
-                } else {
-                    setTimeout(typeLoop, 100);
-                }
+                if (charIndex === currentPhrase.length) { isTyping = false; setTimeout(typeLoop, 2000); } 
+                else { setTimeout(typeLoop, 100); }
             } else {
                 typewriter.textContent = currentPhrase.slice(0, --charIndex);
-                if (charIndex === 0) {
-                    isTyping = true;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    setTimeout(typeLoop, 500);
-                } else {
-                    setTimeout(typeLoop, 50);
-                }
+                if (charIndex === 0) { isTyping = true; phraseIndex = (phraseIndex + 1) % phrases.length; setTimeout(typeLoop, 500); } 
+                else { setTimeout(typeLoop, 50); }
             }
         }
         
@@ -328,15 +236,9 @@
                 const target = +stat.getAttribute('data-target');
                 let current = 0;
                 const increment = target / 100;
-
                 const updateCount = () => {
-                    if (current < target) {
-                        current += increment;
-                        stat.innerText = Math.ceil(current);
-                        requestAnimationFrame(updateCount);
-                    } else {
-                        stat.innerText = target;
-                    }
+                    if (current < target) { current += increment; stat.innerText = Math.ceil(current); requestAnimationFrame(updateCount); } 
+                    else { stat.innerText = target; }
                 };
                 updateCount();
             });
@@ -348,24 +250,16 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    if (entry.target.querySelector('.stats') && !hasCounted) {
-                        animateStats();
-                        hasCounted = true;
-                    }
+                    if (entry.target.querySelector('.stats') && !hasCounted) { animateStats(); hasCounted = true; }
                 }
             });
         }, { threshold: 0.15 });
-
         reveals.forEach(r => revealObserver.observe(r));
 
         function checkLogin() {
             const isLoggedIn = localStorage.getItem("loggedIn");
-            if (isLoggedIn === "true") {
-                window.location.href = "book.html";
-            } else {
-                alert("Please log in first.");
-                window.location.href = "login.html";
-            }
+            if (isLoggedIn === "true") { window.location.href = "book.html"; } 
+            else { alert("Please log in first."); window.location.href = "login.html"; }
         }
 
         function updateNavbarAuthLinks() {
@@ -375,23 +269,9 @@
             const name = localStorage.getItem("userName") || "User";
             const role = localStorage.getItem("userRole");
             const adminLink = document.getElementById('adminPanelLink');
-
-            if (adminLink) {
-                adminLink.style.display = (isLoggedIn && role === 'admin') ? 'inline-block' : 'none';
-            }
-
+            if (adminLink) { adminLink.style.display = (isLoggedIn && role === 'admin') ? 'inline-block' : 'none'; }
             if (isLoggedIn) {
-                container.innerHTML = `
-                <div class="dropdown">
-                  <button class="dropdown-btn" onclick="toggleDropdown(event)">👤 ${name} ▼</button>
-                  <div class="dropdown-content" id="userDropdownMenu">
-                    <a href="profile.html">Profile</a>
-                    <a href="history.html">Booking History</a>
-                    <a href="forgot-password.html">Reset Password</a>
-                    <a href="dashboard.html">Dashboard</a>
-                    <a href="#" onclick="logout()">Logout</a>
-                  </div>
-                </div>`;
+                container.innerHTML = `<div class="dropdown"><button class="dropdown-btn" onclick="toggleDropdown(event)">👤 ${name} ▼</button><div class="dropdown-content" id="userDropdownMenu"><a href="profile.html">Profile</a><a href="history.html">Booking History</a><a href="forgot-password.html">Reset Password</a><a href="dashboard.html">Dashboard</a><a href="#" onclick="logout()">Logout</a></div></div>`;
             } else {
                 container.innerHTML = `<a href="login.html">Login/SignUp</a>`;
             }
@@ -416,31 +296,16 @@
 
         document.getElementById("chatbot-icon").addEventListener("click", () => {
             const botWindow = window.open("bot.html", "ResQNowBot", "width=420,height=650,scrollbars=no");
-            if (botWindow) {
-                botWindow.focus();
-            } else {
-                alert("Please allow pop-ups for this website to use the chatbot.");
-            }
+            if (botWindow) { botWindow.focus(); } 
+            else { alert("Please allow pop-ups for this website to use the chatbot."); }
         });
 
-        // --- ADDED: SCROLL-TO-TOP JAVASCRIPT ---
         const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-        // Show button when user scrolls down 200px
         window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                scrollTopBtn.classList.add("show");
-            } else {
-                scrollTopBtn.classList.remove("show");
-            }
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) { scrollTopBtn.classList.add("show"); } 
+            else { scrollTopBtn.classList.remove("show"); }
         };
-
-        // Scroll to the top when the button is clicked
-        scrollTopBtn.onclick = function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-        // --- END OF SCROLL-TO-TOP JAVASCRIPT ---
-
+        scrollTopBtn.onclick = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); };
     </script>
 </body>
 </html>
