@@ -44,28 +44,8 @@ Our mission is to leverage technology to save lives by making emergency medical 
 
 You can view the live, deployed version of the project here:
 
-**[https://resqnow.your-live-url.com](https://resqnow.netlify.app)** ---
+**[https://resqnow.netlify.app](https://resqnow.netlify.app)** ---
 
-## 📸 Screenshots
-
-<table>
-  <tr>
-    <td><img src="https://your-image-url-here.com/homepage.png" alt="Homepage Screenshot" width="400"/></td>
-    <td><img src="https://your-image-url-here.com/booking_form.png" alt="Booking Form Screenshot" width="400"/></td>
-  </tr>
-  <tr>
-    <td align="center"><sub><b>Homepage</b></sub></td>
-    <td align="center"><sub><b>Booking Form</b></sub></td>
-  </tr>
-  <tr>
-    <td><img src="https://your-image-url-here.com/live_tracking.png" alt="Live Tracking Screenshot" width="400"/></td>
-    <td><img src="https://your-image-url-here.com/user_dashboard.png" alt="User Dashboard Screenshot" width="400"/></td>
-  </tr>
-  <tr>
-    <td align="center"><sub><b>Live Ambulance Tracking</b></sub></td>
-    <td align="center"><sub><b>User Booking History</b></sub></td>
-  </tr>
-</table>
 
 ---
 
