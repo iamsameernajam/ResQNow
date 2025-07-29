@@ -6,7 +6,7 @@ Site Live at : https://resqnow.netlify.app
 ![ResqNow Banner](https://your-image-url-here.com/resqnow_banner.png) **A web-based platform for fast and reliable ambulance booking during critical emergencies. ResqNow bridges the gap between patients in need and ambulance services, ensuring timely medical attention during the crucial "golden hour."**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Deployment](https://img.shields.io/badge/Deployment-Live-brightgreen)](https://resqnow.your-live-url.com) [![Build Status](https://img.shields.io/badge/Build-Passing-success)](https://github.com/your-username/resqnow) ---
+[![Deployment](https://img.shields.io/badge/Deployment-Live-brightgreen)](https://resqnow.netlify.app) [![Build Status](https://img.shields.io/badge/Build-Passing-success)](https://github.com/your-username/resqnow) ---
 
 ## 📍 Table of Contents
 
