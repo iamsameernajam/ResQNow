@@ -5,8 +5,8 @@ Site Live at : https://resqnow.netlify.app
 
 ![ResqNow Banner](https://your-image-url-here.com/resqnow_banner.png) **A web-based platform for fast and reliable ambulance booking during critical emergencies. ResqNow bridges the gap between patients in need and ambulance services, ensuring timely medical attention during the crucial "golden hour."**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Deployment](https://img.shields.io/badge/Deployment-Live-brightgreen)](https://resqnow.netlify.app) [![Build Status](https://img.shields.io/badge/Build-Passing-success)](https://github.com/your-username/resqnow) ---
+
+[![Deployment](https://img.shields.io/badge/Deployment-Live-brightgreen)](https://resqnow.netlify.app) [![Build Status](https://img.shields.io/badge/Build-Passing-success)](https://github.com/iamsameernajam/resqnow) ---
 
 ## 📍 Table of Contents
 
@@ -44,7 +44,7 @@ Our mission is to leverage technology to save lives by making emergency medical 
 
 You can view the live, deployed version of the project here:
 
-**[https://resqnow.your-live-url.com](https://resqnow.your-live-url.com)** ---
+**[https://resqnow.your-live-url.com](https://resqnow.netlify.app)** ---
 
 ## 📸 Screenshots
 
@@ -225,6 +225,6 @@ This project is distributed under the MIT License. See `LICENSE.txt` for more in
 
 ## 📞 Contact
 
-Your Name - [Your LinkedIn/Twitter Link] - your.email@example.com
+Email - iamsameer2352@gmail.com
 
-Project Link: [https://github.com/your-username/resqnow](https://github.com/your-username/resqnow) ---
+Project Link: [https://github.com/iamsameernajam/resqnow](https://github.com/iamsameernajam/resqnow) ---
