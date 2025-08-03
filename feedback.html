@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Feedback - ResQNow</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚑</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #f6f5f7;
+            font-family: "Montserrat", sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header, footer {
+            background: #fff;
+            padding: 20px 10%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        .nav-left a {
+            text-decoration: none;
+        }
+        .nav-left h1 {
+            color: #e60050;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        footer p {
+            color: #e60073;
+            font-weight: bold;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+        }
+        nav.nav-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        nav.nav-right a {
+            color: #e60050;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 2px solid #e60050;
+            border-radius: 20px;
+            transition: 0.3s ease;
+        }
+        nav.nav-right a:hover {
+            background: #e60050;
+            color: #fff;
+        }
+
+        /* Feedback Container Styles */
+        .feedback-container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            width: 600px;
+            max-width: 90%;
+            padding: 40px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        .feedback-container h1 {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .feedback-container p {
+            color: #555;
+            margin-bottom: 25px;
+        }
+        
+        /* Star Rating Styles */
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 2rem;
+            color: #ffc107; /* Gold color for stars */
+            margin-bottom: 20px;
+        }
+        .star-rating i {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .star-rating i:hover {
+            transform: scale(1.2);
+        }
+
+        /* Form Styles */
+        #feedback-form textarea {
+            background: #eee;
+            border: none;
+            padding: 15px;
+            margin: 8px 0;
+            width: 100%;
+            border-radius: 5px;
+            font-family: "Montserrat", sans-serif;
+            resize: vertical;
+            min-height: 120px;
+        }
+        #feedback-form button {
+            border-radius: 20px;
+            border: 1px solid #ff1a1a;
+            background: linear-gradient(to right, #c962a3, #a70606);
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 80ms ease-in;
+        }
+        #feedback-form button:active {
+            transform: scale(0.95);
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-left">
+           <a href="index.html"><h1> 🚑 ResQNow </h1></a>
+        </div>
+        <nav class="nav-right">
+          <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <div class="feedback-container">
+        <h1>Share Your Feedback</h1>
+        <p>We'd love to hear what you think about our service!</p>
+        <form id="feedback-form">
+            <div class="star-rating">
+                <i class="far fa-star" data-value="1"></i>
+                <i class="far fa-star" data-value="2"></i>
+                <i class="far fa-star" data-value="3"></i>
+                <i class="far fa-star" data-value="4"></i>
+                <i class="far fa-star" data-value="5"></i>
+            </div>
+            <input type="hidden" name="rating" id="rating-value" value="0">
+            <textarea id="feedback-message" placeholder="Tell us more about your experience..." rows="6" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2025 ResQNow. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('.star-rating i');
+            const ratingInput = document.getElementById('rating-value');
+
+            // Star rating interaction
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = this.dataset.value;
+                    ratingInput.value = rating;
+                    updateStars(rating);
+                });
+
+                star.addEventListener('mouseover', function() {
+                    updateStars(this.dataset.value, true);
+                });
+
+                star.addEventListener('mouseout', function() {
+                    updateStars(ratingInput.value);
+                });
+            });
+
+            function updateStars(rating, isHover = false) {
+                stars.forEach(star => {
+                    if (star.dataset.value <= rating) {
+                        star.classList.remove('far'); // far is for outline
+                        star.classList.add('fas');   // fas is for solid
+                    } else {
+                        star.classList.remove('fas');
+                        star.classList.add('far');
+                    }
+                });
+            }
+
+            // Form submission
+            document.getElementById("feedback-form").addEventListener("submit", async (e) => {
+                e.preventDefault();
+                
+                const rating = ratingInput.value;
+                const message = document.getElementById("feedback-message").value.trim();
+                const token = localStorage.getItem("token"); // Assuming user is logged in
+
+                if (rating === "0") {
+                    alert("Please select a star rating.");
+                    return;
+                }
+
+                if (!token) {
+                    alert("You must be logged in to submit feedback.");
+                    window.location.href = 'login.html'; // Redirect to login if not logged in
+                    return;
+                }
+                
+                try {
+                    // Replace with your actual feedback API endpoint
+                    const response = await axios.post("https://resqnow-ambulance-booking.onrender.com/api/feedback", 
+                        { rating, message },
+                        { headers: { 'Authorization': `Bearer ${token}` } }
+                    );
+                    
+                    alert("Thank you for your feedback!");
+                    document.getElementById("feedback-form").reset();
+                    ratingInput.value = "0";
+                    updateStars(0);
+
+                } catch (err) {
+                    const errorMessage = err.response?.data?.msg || "Feedback submission failed. Please try again.";
+                    alert(errorMessage);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
