@@ -51,26 +51,17 @@
         .nav-left h1 { margin: 0; font-size: 20px; color: #e60050; white-space: nowrap; border-bottom: none; }
         .chatbot-icon { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #e60050; color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.2s ease-in-out; }
         .chatbot-icon:hover { transform: scale(1.1); }
+        
         .scroll-to-top { position: fixed; bottom: 30px; left: 30px; width: 50px; height: 50px; background-color: #333; color: white; border: none; border-radius: 50%; display: none; justify-content: center; align-items: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; opacity: 0; transition: opacity 0.3s ease-in-out, transform 0.2s; }
         .scroll-to-top:hover { background-color: #555; transform: scale(1.1); }
-        
-        /* --- New Glowing Pulse Effect --- */
-        @keyframes glow-pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(230, 0, 80, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(230, 0, 80, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(230, 0, 80, 0);
-            }
-        }
+        .scroll-to-top.show { display: flex; opacity: 1; }
 
-        #bookNowBtn {
-            animation: glow-pulse 2s infinite;
+        @keyframes glow-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(230, 0, 80, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(230, 0, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 0, 80, 0); }
         }
-        /* --- End of new styles --- */
+        #bookNowBtn { animation: glow-pulse 2s infinite; }
 
         @media (max-width: 768px) {
             .nav-right { display: none; flex-direction: column; align-items: flex-end; position: absolute; top: 60px; right: 0; left: auto; max-width: 300px; width: auto; background: white; padding: 10px 5%; border-top: 1px solid #eee; box-shadow: 0 2px 6px rgba(0,0,0,0.1); z-index: 999; }
