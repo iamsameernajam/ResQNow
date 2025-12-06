@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚑</text></svg>">
 
+    <!-- ======================================================
+         NEW CSS EXACTLY MATCHING YOUR SCREENSHOT
+    ======================================================= -->
     <style>
-        /* RESET + GLOBAL */
         html { scroll-behavior: smooth; }
         *, *::before, *::after { box-sizing: border-box; }
         body {
@@ -18,50 +20,36 @@
             color: #222;
         }
 
-        /* ==============================
-           ✔ NEW NAVBAR (as in screenshot)
-        ===============================*/
+        /* ===================== NAVBAR =====================*/
         header {
-            background-color: #4CAF50; /* GREEN BAR */
+            background-color: #4CAF50;
             padding: 16px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .nav-left h1 {
             margin: 0;
             font-size: 26px;
             font-weight: bold;
-            color: white; /* white logo text */
+            color: white;
         }
-
         .nav-right {
             display: flex;
             align-items: center;
             gap: 20px;
         }
-
         .nav-right a,
-        .nav-right span,
-        .dropdown-btn {
+        .nav-right span {
             color: white;
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
-            padding: 4px 8px;
         }
-
         .nav-right a:hover {
             text-decoration: underline;
         }
-
-        .phone-number {
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        /* LOGIN/PROFILE BUTTON LIKE SCREENSHOT */
+        .phone-number { color: #fff; font-weight: bold; }
         #auth-links a {
             background: white;
             color: #4CAF50 !important;
@@ -69,21 +57,29 @@
             border-radius: 6px;
             font-weight: bold;
         }
-
         #auth-links a:hover {
             background: #e8e8e8;
         }
 
-        /* Dropdown styling kept same but recolored */
+        .dropdown { position: relative; }
         .dropdown-content {
-            background-color: #fff;
+            display: none;
+            position: absolute;
+            background: white;
+            top: 35px;
+            right: 0;
+            padding: 10px;
             border-radius: 6px;
+            border: 1px solid #ddd;
         }
         .dropdown-content a {
             color: #333 !important;
+            display: block;
+            padding: 6px;
+            text-decoration: none;
         }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        /* Hamburger visible only mobile */
         .hamburger {
             display: none;
             color: white;
@@ -92,12 +88,10 @@
             background: none;
         }
 
-        /* ==============================
-           ✔ NEW HERO SECTION (screenshot)
-        ===============================*/
+        /* ===================== HERO =====================*/
         .hero {
             height: 65vh;
-            background-image: url("stethoscope-bg.jpg"); /* replace with your bg image */
+            background-image: url("stethoscope-bg.jpg");  /* replace with your image */
             background-size: cover;
             background-position: center;
             position: relative;
@@ -106,67 +100,64 @@
             align-items: center;
             text-align: center;
         }
-
-        /* dark overlay */
         .hero::before {
             content: "";
             position: absolute;
             inset: 0;
             background: rgba(0,0,0,0.45);
         }
-
         .hero .content {
             position: relative;
             max-width: 800px;
             color: white;
         }
-
         .hero h2 {
             font-size: 48px;
             margin-bottom: 15px;
             color: white;
         }
-
         .hero p {
             font-size: 20px;
             margin-bottom: 20px;
-            color: #e8e8e8;
+            color: #eee;
         }
-
-        /* Pink button replaced with screenshot style */
         .btn {
-            background-color: white;
+            background: white;
             color: #4CAF50;
             padding: 12px 26px;
             border-radius: 6px;
             font-weight: bold;
             text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
+            transition: .3s;
         }
-        .btn:hover {
-            background-color: #f3f3f3;
-        }
+        .btn:hover { background: #f3f3f3; }
 
-        /* Hide ambulance image from old hero layout */
-        .hero img { display: none; }
-
-        /* ==============================
-            SECTIONS (kept same)
-        ===============================*/
+        /* ===================== SECTIONS =====================*/
         section { padding: 60px 10%; background-color: white; }
-        .section-title { text-align: center; font-size: 36px; color: #4CAF50; margin-bottom: 25px; }
-        .section-content { max-width: 900px; margin: auto; font-size: 16px; color: #444; line-height: 1.6; }
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #4CAF50;
+            margin-bottom: 25px;
+        }
+        .section-content {
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.6;
+            font-size: 16px;
+        }
         li { margin-bottom: 12px; }
 
         /* WHO WE ARE */
-        .who-we-are { display: flex; flex-wrap: wrap; align-items: center; background-color: #f9f9f9; }
-        .image-box { flex: 1; text-align: center; }
-        .image-box img { max-width: 100%; }
-        .content-box { flex: 1; padding: 20px; }
+        .who-we-are {
+            display: flex; flex-wrap: wrap; align-items: center;
+            background: #f9f9f9;
+        }
+        .image-box { flex:1; text-align:center; }
+        .image-box img { width: 100%; max-width: 450px; }
+        .content-box { flex:1; padding: 20px; }
 
-        /* Stats */
+        /* STATS */
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -174,7 +165,7 @@
             margin-top: 25px;
         }
         .stat-item {
-            background: #fff;
+            background: white;
             padding: 18px;
             border-radius: 10px;
             border: 1px solid #ddd;
@@ -185,75 +176,230 @@
             color: #4CAF50;
         }
 
-        /* Why Us */
-        .why-us { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        /* WHY US */
+        .why-us { display:flex; flex-direction:column; align-items:center; gap:15px; }
         .testimonial {
             background: #f5f5f5;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 600px;
-            text-align: center;
-            font-style: italic;
+            padding:20px;
+            border-radius:10px;
+            font-style:italic;
+            max-width:600px;
         }
 
-        /* Reviews */
+        /* REVIEWS */
         .review-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
         }
         .review-card {
-            background: #fff;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            transition: 0.3s;
+            background:#fff;
+            padding:20px;
+            border-radius:16px;
+            box-shadow:0 8px 24px rgba(0,0,0,0.1);
+            transition:.3s;
         }
         .review-card:hover {
-            transform: translateY(-8px);
+            transform:translateY(-8px);
         }
 
+        /* FOOTER */
         footer {
-            background: #efefef;
-            text-align: center;
-            padding: 40px 10%;
-            color: #555;
+            background:#efefef;
+            text-align:center;
+            padding:40px 10%;
         }
 
-        /* Reveal animation retained */
+        /* SCROLL ANIMATION */
         .reveal { opacity: 0; transform: translateY(50px); transition: 0.6s; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Floating Chatbot + Scroll Top */
+        /* FLOATING BUTTONS */
         .chatbot-icon {
-            position: fixed; bottom: 30px; right: 30px;
-            width: 60px; height: 60px; border-radius: 50%;
-            background: #4CAF50; color: white;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 28px; cursor: pointer;
+            position:fixed;
+            bottom:30px; right:30px;
+            width:60px; height:60px;
+            border-radius:50%;
+            background:#4CAF50;
+            color:white;
+            font-size:28px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            cursor:pointer;
         }
         .scroll-to-top {
-            position: fixed; bottom: 30px; left: 30px;
-            width: 50px; height: 50px;
-            background: #333; color: white; border-radius: 50%;
-            display: none; justify-content: center; align-items: center;
-            font-size: 22px;
+            position:fixed;
+            bottom:30px; left:30px;
+            width:50px; height:50px;
+            background:#333;
+            color:white;
+            border-radius:50%;
+            display:none;
+            justify-content:center;
+            align-items:center;
+            font-size:22px;
         }
-
-        .scroll-to-top.show { display: flex; }
+        .scroll-to-top.show { display:flex; }
 
         /* MOBILE */
-        @media(max-width: 768px){
+        @media(max-width:768px){
             .nav-right { display:none; }
             .hamburger { display:block; }
             header { padding: 12px 20px; }
             .hero h2 { font-size: 28px; }
             .hero p { font-size: 16px; }
         }
-
     </style>
 </head>
 <body>
 
-<!-- REST OF YOUR HTML BELOW — UNCHANGED -->
+<!-- ======================================================
+     NAVBAR
+======================================================= -->
+<header>
+    <div class="nav-left">
+        <h1>ResQNow</h1>
+    </div>
 
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <div class="nav-right" id="nav-menu">
+        <a href="#">Home</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#reviews">Reviews</a>
+        <span class="phone-number">📞 +91 99427 27000</span>
+
+        <div class="dropdown" id="auth-dropdown">
+            <span id="user-name" style="cursor:pointer; display:none;"></span>
+            <div class="dropdown-content" id="dropdown-content">
+                <a href="#" id="logout-btn">Logout</a>
+            </div>
+        </div>
+
+        <span id="auth-links">
+            <a href="login.html" id="login-btn">Login</a>
+            <a href="signup.html" id="signup-btn">Sign Up</a>
+        </span>
+    </div>
+</header>
+
+<!-- ======================================================
+     HERO
+======================================================= -->
+<section class="hero">
+    <div class="content">
+        <h2>Fast & Reliable Ambulance Services</h2>
+        <p>Your safety is our priority — trusted by thousands for emergency support.</p>
+        <a class="btn" href="#contact">Contact Us</a>
+    </div>
+</section>
+
+<!-- ======================================================
+     WHO WE ARE
+======================================================= -->
+<section class="who-we-are reveal">
+    <div class="image-box">
+        <img src="ambulance.png" alt="Ambulance">
+    </div>
+    <div class="content-box">
+        <h2 class="section-title">Who We Are</h2>
+        <p class="section-content">
+            ResQNow is committed to providing rapid, reliable, and life-saving ambulance services.
+        </p>
+        <div class="stats">
+            <div class="stat-item"><strong>5000+</strong><br>Patients Served</div>
+            <div class="stat-item"><strong>24/7</strong><br>Availability</div>
+            <div class="stat-item"><strong>4.9/5</strong><br>Rating</div>
+            <div class="stat-item"><strong>15+</strong><br>Emergency Units</div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================
+     WHY US
+======================================================= -->
+<section id="why-us" class="reveal">
+    <h2 class="section-title">Why Choose Us</h2>
+    <div class="why-us">
+        <div class="testimonial">“Super fast response — they saved my father's life.”</div>
+        <div class="testimonial">“Professional staff and clean ambulance.”</div>
+        <div class="testimonial">“Affordable and reliable service.”</div>
+    </div>
+</section>
+
+<!-- ======================================================
+     REVIEWS
+======================================================= -->
+<section id="reviews" class="reveal">
+    <h2 class="section-title">Customer Reviews</h2>
+    <div class="review-container">
+        <div class="review-card">★★★★★ — “Excellent service!”</div>
+        <div class="review-card">★★★★★ — “Arrived within minutes.”</div>
+        <div class="review-card">★★★★☆ — “Very helpful team.”</div>
+    </div>
+</section>
+
+<!-- ======================================================
+     FOOTER
+======================================================= -->
+<footer>
+    <p>© 2025 ResQNow. All rights reserved.</p>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="chatbot-icon" onclick="window.location.href='chatbot.html'">💬</div>
+<div class="scroll-to-top" id="scrollBtn" onclick="scrollToTop()">↑</div>
+
+<!-- ======================================================
+     JAVASCRIPT (UNCHANGED)
+======================================================= -->
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("nav-menu");
+        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    window.addEventListener("scroll", () => {
+        const scrollBtn = document.getElementById("scrollBtn");
+        scrollBtn.classList.toggle("show", window.scrollY > 300);
+    });
+
+    function reveal() {
+        document.querySelectorAll(".reveal").forEach((el) => {
+            const top = el.getBoundingClientRect().top;
+            if (top < window.innerHeight - 100) el.classList.add("active");
+        });
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    /* AUTH LOGIC (untouched) */
+    document.addEventListener("DOMContentLoaded", () => {
+        const user = localStorage.getItem("user");
+        const userNameSpan = document.getElementById("user-name");
+        const authLinks = document.getElementById("auth-links");
+        const logoutBtn = document.getElementById("logout-btn");
+
+        if (user) {
+            userNameSpan.textContent = JSON.parse(user).name;
+            userNameSpan.style.display = "inline-block";
+            authLinks.style.display = "none";
+        } else {
+            userNameSpan.style.display = "none";
+            authLinks.style.display = "inline-block";
+        }
+
+        logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("user");
+            location.reload();
+        });
+    });
+</script>
+
+</body>
+</html>
