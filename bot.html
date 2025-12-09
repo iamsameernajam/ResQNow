@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* --- Universal Styles & MODIFIED Red Color Theme --- */
+        /* --- Universal Styles & MODIFIED Green Color Theme --- */
         :root {
-            --primary-color: #e60050; /* Main red color */
-            --secondary-color: #c80045; /* Darker red for gradients/hovers */
-            --user-bubble-bg: #e60050;
+            --primary-color: #28a745; /* Main green */
+            --secondary-color: #1e7e34; /* Darker green */
+            --user-bubble-bg: #28a745;
             --bot-bubble-bg: #f1f0f0;
             --text-light: #ffffff;
             --text-dark: #212529;
@@ -75,14 +75,13 @@
         }
         .status-badge::before {
             content: '●';
-            color: #2ecc71; /* Green dot for online status */
+            color: #2ecc71; /* Green dot */
             margin-right: 6px;
             font-size: 1rem;
             vertical-align: middle;
         }
 
-
-        /* --- Chat Messages Area (Flexbox Child) --- */
+        /* --- Chat Messages Area --- */
         .chat-messages {
             flex-grow: 1;
             padding: 1.5rem;
@@ -118,7 +117,7 @@
             line-height: 1.6;
         }
 
-        /* Bot Message Styling */
+        /* Bot Message */
         .bot-message {
             align-self: flex-start;
         }
@@ -132,7 +131,7 @@
             border-bottom-left-radius: 4px;
         }
 
-        /* User Message Styling */
+        /* User Message */
         .user-message {
             align-self: flex-end;
             flex-direction: row-reverse;
@@ -169,7 +168,7 @@
         .typing-indicator .dot:nth-child(2) { animation-delay: 0.2s; }
         .typing-indicator .dot:nth-child(3) { animation-delay: 0.4s; }
 
-        /* --- Chat Input Area --- */
+        /* Input Area */
         .chat-input-area {
             padding: 1rem 1.5rem;
             border-top: 1px solid #dee2e6;
@@ -209,8 +208,8 @@
         #send-button:hover {
             background-color: var(--secondary-color);
         }
-        
-        /* --- Animations --- */
+
+        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -220,35 +219,15 @@
             30% { transform: translateY(-6px); }
         }
 
-        /* --- Responsive Design for Mobile & Tablets --- */
         @media (max-width: 768px) {
-            .chatbot-header h1 {
-                font-size: 1.2rem;
-            }
-            .status-badge {
-                font-size: 0.65rem;
-                padding: 3px 8px;
-            }
-            .chat-messages {
-                padding: 1rem;
-            }
-            .message {
-                max-width: 90%;
-            }
-            .message .avatar {
-                width: 35px;
-                height: 35px;
-            }
-            .chat-input-area {
-                padding: 0.75rem;
-            }
-            #user-input {
-                padding: 0.6rem 1rem;
-            }
-            #send-button {
-                width: 45px;
-                height: 45px;
-            }
+            .chatbot-header h1 { font-size: 1.2rem; }
+            .status-badge { font-size: 0.65rem; padding: 3px 8px; }
+            .chat-messages { padding: 1rem; }
+            .message { max-width: 90%; }
+            .message .avatar { width: 35px; height: 35px; }
+            .chat-input-area { padding: 0.75rem; }
+            #user-input { padding: 0.6rem 1rem; }
+            #send-button { width: 45px; height: 45px; }
         }
     </style>
 </head>
@@ -260,8 +239,7 @@
             <div class="status-badge">Online</div>
         </header>
 
-        <main class="chat-messages" id="chat-messages">
-            </main>
+        <main class="chat-messages" id="chat-messages"></main>
 
         <footer class="chat-input-area">
             <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
@@ -269,211 +247,100 @@
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const chatMessages = document.getElementById('chat-messages');
-            const userInput = document.getElementById('user-input');
-            const sendButton = document.getElementById('send-button');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
 
-            // --- Function to add a message to the UI ---
-            const addMessage = (text, sender) => {
-                const messageElement = document.createElement('div');
-                messageElement.classList.add('message', `${sender}-message`);
+    const addMessage = (text, sender) => {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', `${sender}-message`);
 
-                const avatar = (sender === 'bot') ? 'AI' : 'You';
-                const bubbleContent = text;
+        const avatar = (sender === 'bot') ? 'AI' : 'You';
 
-                messageElement.innerHTML = `
-                    <div class="avatar">${avatar}</div>
-                    <div class="bubble">${bubbleContent}</div>
-                `;
+        messageElement.innerHTML = `
+            <div class="avatar">${avatar}</div>
+            <div class="bubble">${text}</div>
+        `;
 
-                chatMessages.appendChild(messageElement);
-                chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to the latest message
-            };
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
 
-            // --- Function to show/hide typing indicator ---
-            let typingIndicator;
-            const showTypingIndicator = (show) => {
-                if (show) {
-                    typingIndicator = document.createElement('div');
-                    typingIndicator.classList.add('message', 'bot-message', 'typing-indicator');
-                    typingIndicator.innerHTML = `
-                        <div class="avatar">AI</div>
-                        <div class="bubble">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                        </div>
-                    `;
-                    chatMessages.appendChild(typingIndicator);
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                } else if (typingIndicator) {
-                    typingIndicator.remove();
-                }
-            };
-            
-            // --- AI Response Logic ---
-            const getBotResponse = (message) => {
-                const msg = message.toLowerCase().trim();
+    let typingIndicator;
+    const showTypingIndicator = (show) => {
+        if (show) {
+            typingIndicator = document.createElement('div');
+            typingIndicator.classList.add('message', 'bot-message', 'typing-indicator');
+            typingIndicator.innerHTML = `
+                <div class="avatar">AI</div>
+                <div class="bubble">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            `;
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        } else if (typingIndicator) {
+            typingIndicator.remove();
+        }
+    };
 
-                // Greetings
-                if (msg.includes('hello') || msg.includes('hii') || msg.includes('hey')) {
-                    return "Hello! I am the ResQNow Assistant. How can I assist you today?";
-                }
+    const getBotResponse = (message) => {
+        const msg = message.toLowerCase().trim();
 
-                // How are you?
-                if (msg.includes('how are you')) {
-                    return "I'm a program, so I don't have feelings, but I'm operating at 100% efficiency! Thanks for asking. How can I help you?";
-                }
+        if (msg.includes('hello') || msg.includes('hii') || msg.includes('hey'))
+            return "Hello! I am the ResQNow Assistant. How can I assist you today?";
 
-                // Who are you?
-                if (msg.includes('who are you') || msg.includes('what are you')) {
-                    return "I am the ResQNow Assistant. I'm here to provide information about our ambulance services, booking process, and more.";
-                }
+        if (msg.includes('how are you'))
+            return "I'm a program, so I don't have feelings, but I'm working perfectly! How can I help?";
 
-                // Booking guide
-                if (msg.includes('book') || msg.includes('ambulance')) {
-                    return "Booking an ambulance is a simple process. Here are the steps:<br><br>1. <b>Login</b> to your ResQNow account on our app or website.<br>2. On your dashboard, you will find your <b>Unique ID</b>.<br>3. Click on 'Book Ambulance', enter the patient details and your Unique ID to confirm the booking instantly.";
-                }
+        if (msg.includes('who are you'))
+            return "I am the ResQNow Assistant, here to help you with ambulance services and bookings.";
 
-                // Services offered
-                if (msg.includes('services') || msg.includes('offer')) {
-                    return "We are proud to offer a range of professional medical transport services:<br>• <b>Basic Life Support (BLS)</b>: For patients with stable conditions.<br>• <b>Advanced Life Support (ALS)</b>: A mobile ICU for critical patients.<br>• <b>Patient Transport Vehicle</b>: For non-emergency transfers.";
-                }
+        if (msg.includes('book') || msg.includes('ambulance'))
+            return "To book an ambulance:<br>1. Login to the app<br>2. Get your Unique ID<br>3. Enter patient details and confirm booking.";
 
-                // Pricing
-                if (msg.includes('price') || msg.includes('cost') || msg.includes('pricing') || msg.includes('free')) {
-                    return "Great news! As part of our promotional launch and commitment to the community, all our ambulance services are currently being offered <strong>completely free of charge.</strong>";
-                }
+        if (msg.includes('services'))
+            return "We offer:<br>• BLS Ambulance<br>• ALS Ambulance (mobile ICU)<br>• Patient Transport Vehicle";
 
-                // Contact Us
-                if (msg.includes('contact') || msg.includes('number') || msg.includes('call')|| msg.includes('mail')) {
-                    return "You can reach our support team 24/7 through the following channels:<br><br>📞 <b>Phone:</b> 1800-234-001<br>📧 <b>Email:</b> helpresqnow@gmail.com";
-                }
+        if (msg.includes('price'))
+            return "Good news! All services are currently **free of charge**.";
 
-                if (msg.includes('developer') || msg.includes('owner') || msg.includes('creator') || msg.includes('made you')) {
-                    return 'This Website is developed by <strong>Sameer Najam</strong>. You can connect with him on <a href="https://www.linkedin.com/in/mohd-sameer-najam-291785267/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.';
-                }
+        if (msg.includes('contact'))
+            return "📞 1800-234-001<br>📧 helpresqnow@gmail.com";
 
-                // --- Start: New Q&A block ---
+        return "Sorry, I don't have info about that. Try asking about booking, pricing, or services.";
+    };
 
-// Category: About Services & Equipment
-if (msg.includes('difference') && (msg.includes('bls') || msg.includes('als'))) {
-    return "The main difference is the level of care. <b>BLS (Basic Life Support)</b> is for stable patients needing transport and basic monitoring. <b>ALS (Advanced Life Support)</b> is a mobile ICU with equipment like ventilators and cardiac monitors for critical patients.";
-}
+    const handleUserMessage = () => {
+        const message = userInput.value.trim();
+        if (!message) return;
 
-if (msg.includes('equipment') && msg.includes('als')) {
-    return "Our ALS ambulances are equipped with advanced medical gear, including cardiac monitors, defibrillators, ventilators, infusion pumps, and a wide range of emergency medications.";
-}
+        addMessage(message, 'user');
+        userInput.value = '';
 
-if (msg.includes('staff') || msg.includes('trained') || msg.includes('certified')) {
-    return "Absolutely. All our medical staff, including paramedics and emergency medical technicians, are highly trained, certified, and have extensive experience in emergency care.";
-}
+        showTypingIndicator(true);
 
-if (msg.includes('covid') || msg.includes('corona')) {
-    return "Yes, we have specially equipped ambulances with isolation pods and staff trained in infection control protocols to handle COVID-19 and other infectious disease cases safely.";
-}
+        setTimeout(() => {
+            const botResponse = getBotResponse(message);
+            showTypingIndicator(false);
+            addMessage(botResponse, 'bot');
+        }, 1200);
+    };
 
-if (msg.includes('non emergency')) {
-    return "Yes, our Patient Transport Vehicle service is designed for non-emergency situations, such as scheduled hospital visits, discharges, or inter-facility transfers.";
-}
+    sendButton.addEventListener('click', handleUserMessage);
+    userInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') handleUserMessage();
+    });
 
+    setTimeout(() => {
+        addMessage("Hello! Welcome to ResQNow. How can I help you today?", 'bot');
+    }, 1000);
+});
+</script>
 
-// Category: Operational & Availability
-if (msg.includes('fast') || msg.includes('time') || msg.includes('eta') || msg.includes('reach me')) {
-    return "Our dispatch system is optimized for speed. In metro areas, our average arrival time is under 15 minutes. You can also track the ambulance in real-time on our app after booking.";
-}
-
-if (msg.includes('24/7') || msg.includes('any time') || msg.includes('always open')) {
-    return "Yes, our services are available 24 hours a day, 7 days a week, including holidays. We are always ready to help.";
-}
-
-if (msg.includes('cities') || msg.includes('area') || msg.includes('location') || msg.includes('operate')) {
-    return "We are currently fully operational in Noida and rapidly expanding to other major cities. While we may not be in Pilibhit just yet, our network is growing every day!";
-}
-
-if (msg.includes('track') || msg.includes('gps')) {
-    return "Yes, for your peace of mind, you can track the dispatched ambulance's location in real-time through a GPS link provided in our app.";
-}
-
-if (msg.includes('family') || msg.includes('accompany') || msg.includes('travel with')) {
-    return "Yes, typically one family member or attendant is allowed to accompany the patient. However, this may depend on the patient's medical condition and the space within the ambulance.";
-}
-
-if (msg.includes('hospital') && msg.includes('choose')) {
-    return "Absolutely. You can choose the hospital you want the patient to be taken to. Please provide the hospital details during the booking process.";
-}
-
-
-// Category: Booking & Account
-if (msg.includes('information') || msg.includes('details')) {
-    return "When booking, please have the following information ready: the patient's name and age, a brief description of the medical condition, the exact pickup address, and the destination hospital or address.";
-}
-
-if (msg.includes('unique id')) {
-    return "You can find your <b>Unique ID</b> prominently displayed on the main dashboard as soon as you log in to our app or website.";
-}
-
-if (msg.includes('someone else') || msg.includes('for a relative') || msg.includes('for a friend')) {
-    return "Yes, you can absolutely book an ambulance for someone else. Just ensure you provide their correct details and location during the booking process.";
-}
-
-if (msg.includes('cancel')) {
-    return "Yes, you can cancel a booking directly from the app. We request that you cancel as soon as possible, preferably before an ambulance has been dispatched, to free up the vehicle for another emergency.";
-}
-
-if (msg.includes('forgot') || msg.includes('reset')) {
-    return "If you've forgotten your password, please click on the 'Forgot Password' link on the login page. You'll be guided through the steps to reset it securely.";
-}
-
-
-// Category: General & Miscellaneous
-if (msg.includes('different') || msg.includes('special') || msg.includes('why you')) {
-    return "We focus on three key areas: <b>Speed</b> (average ETA under 15 mins), <b>Care</b> (highly trained staff and advanced equipment), and <b>Transparency</b> (real-time tracking and clear communication). Plus, our service is currently free!";
-}
-
-if (msg.includes('help') || msg.includes('summary') || msg.includes('capabilities')) {
-    return "I can help you with: <br>• How to <b>book</b> an ambulance<br>• Details about our <b>services</b> (BLS, ALS)<br>• Information on our promotional <b>free pricing</b><br>• Our <b>contact</b> details<br>• Answering frequently asked questions.";
-}
-
-// --- End: New Q&A block ---
-                
-                // Fallback message
-                return "I'm sorry, I don't have the information for that. I can assist with topics like <b>booking</b>, our <b>services</b>, <b>pricing</b>, or <b>contact details</b>.";
-            };
-
-            // --- Main function to handle user interaction ---
-            const handleUserMessage = () => {
-                const message = userInput.value.trim();
-                if (!message) return;
-
-                addMessage(message, 'user');
-                userInput.value = '';
-
-                showTypingIndicator(true);
-
-                // Simulate AI "thinking" delay
-                setTimeout(() => {
-                    const botResponse = getBotResponse(message);
-                    showTypingIndicator(false);
-                    addMessage(botResponse, 'bot');
-                }, 1200);
-            };
-            
-            // --- Event Listeners ---
-            sendButton.addEventListener('click', handleUserMessage);
-            userInput.addEventListener('keypress', (event) => {
-                if (event.key === 'Enter') {
-                    handleUserMessage();
-                }
-            });
-
-            // --- Initial greeting from the bot ---
-            setTimeout(() => {
-                addMessage("Hello! Welcome to ResQNow. How can I help you today?", 'bot');
-            }, 1000);
-        });
-    </script>
 </body>
 </html>
